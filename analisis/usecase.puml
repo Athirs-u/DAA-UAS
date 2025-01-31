@@ -1,0 +1,44 @@
+@startuml aplikasi
+actor Admin
+actor Dosen
+actor Mahasiswa
+
+usecase "Input Email dan Password" as UC1
+usecase "Cek Kredensial" as UC2
+usecase "Login Gagal" as UC3
+usecase "Login Admin" as UC4
+usecase "Login User" as UC5
+usecase "Login Driver" as UC6
+usecase "Akses Manajemen Booking Transportasi" as UC7
+usecase "Akses Navigasi" as UC8
+usecase "Tambah Booking" as UC9
+usecase "Edit Booking" as UC10
+usecase "Terima Booking Transportasi" as UC11
+usecase "Tolak Booking Transportasi" as UC13
+usecase "Logout" as UC12
+
+Admin --> UC1
+Dosen --> UC1
+Mahasiswa --> UC1
+UC1 --> UC2
+UC2 --> UC3: tidak valid
+UC3 --> UC1
+
+UC1 --> UC4: valid
+UC4 --> UC7
+UC7 --> UC9: include
+UC7 --> UC10: include
+UC4 --> UC12 : extend
+
+UC1 --> UC5: valid
+UC5 --> UC8
+UC5 --> UC7
+UC7 --> UC9: include
+UC5 --> UC12 : extend
+
+UC1 --> UC6: valid
+UC6 --> UC11: include
+UC6 --> UC13: include
+UC6 --> UC12 : extend
+
+@enduml

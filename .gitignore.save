@@ -1,0 +1,4 @@
+sampleapp/db/data/test/
+sampleapp/db/data/mysql/
+sampleapp/db/data/performance_schema/
+sampleapp/db/data/aria_log.*

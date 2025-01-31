@@ -1,0 +1,54 @@
+@startuml fakultas
+title Jadwal dan Nilai Mahasiswa Fakultas
+
+start
+
+:Buka Aplikasi;
+
+:Masukkan Email dan Password;
+
+if (Email dan Password Valid?) then (Ya)
+    if (Admin?) then (Ya)
+        :Login Sebagai Admin;
+        :Akses Manajemen transportasi dan navigasi;
+        :Pilih Aksi;
+        if (Aksi = Booking transportasi) then (Booking transportasi)
+            :Masukkan Detail booking;
+            :Simpan booking;
+        else (Aksi = Edit booking) then (Edit booking)
+            :Pilih booking yang Akan Diedit;
+            :Perbarui Detail booking;
+            :Simpan Perubahan;
+        endif
+        :Logout;
+    elseif (Driver?) then (Ya)
+        :Login Sebagai Driver;
+        :Akses menerima order;
+        :Pilih Aksi;
+        if (Aksi = Terima order) then (Terima order)
+            :Terima order yang masuk;
+        else (Aksi = Tolak order) then (Tolak order)
+            :Tolak order yang masuk;
+        endif
+        :Logout;
+    else (Register)
+        :Login Sebagai User;
+        :Akses membuat order transportasi dan navigasi;
+        :Pilih Aksi;
+        if (Aksi = Booking transportasi) then (Booking transportasi)
+            :Masukkan Detail booking;
+            :Simpan booking;
+        else (Aksi = Mulai navigasi) then (Mulai navigasi)
+            :Masukkan Detail navigasi;
+            :Mulai navigasi;
+        endif
+        :Logout;
+    endif
+else (Tidak)
+    :Tampilkan "Email atau Password Tidak Valid";
+    :Kembali ke Halaman Login;
+endif
+
+stop
+
+@enduml
