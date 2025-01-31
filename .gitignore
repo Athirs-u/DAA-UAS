@@ -1,4 +1,7 @@
-sampleapp/db/data/test/
-sampleapp/db/data/mysql/
-sampleapp/db/data/performance_schema/
-sampleapp/db/data/aria_log.*
+sampleapp/db/data/ibdata1
+sampleapp/db/data/ib_logfile1
+sampleapp/db/data/ib_logfile0
+
+echo "sampleapp/db/data/ibdata1" >> .gitignore
+echo "sampleapp/db/data/ib_logfile1" >> .gitignore
+echo "sampleapp/db/data/ib_logfile0" >> .gitignore
